@@ -29,6 +29,7 @@ public class Main {
         root.setParentLoaderPriority(true);
 
         final String webappDirLocation = "src/main/webapp/";
+        root.setWelcomeFiles(new String[]{ "index.jsp" });
         root.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
         root.setResourceBase(webappDirLocation);
 

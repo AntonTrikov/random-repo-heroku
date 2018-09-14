@@ -24,6 +24,7 @@ public class Main {
         final Server server = new Server(Integer.valueOf(webPort));
         final WebAppContext root = new WebAppContext();
 
+        root.setContextPath("/");
         // Parent loader priority is a class loader setting that Jetty accepts.
         // By default Jetty will behave like most web containers in that it will
         // allow your application to replace non-server libraries that are part of the
@@ -39,14 +40,19 @@ public class Main {
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[] { resource_handler, new DefaultHandler() });
         server.setHandler(handlers);
+        
+        final String webappDirLocation = "src/main/webapp/";
+        root.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
+        root.setResourceBase(webappDirLocation);
+        
         /*
         final String webappDirLocation = "src/main/webapp/";
         root.setWelcomeFiles(new String[]{ "index.jsp" });
-        root.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
-        root.setResourceBase(webappDirLocation);
+        
 
         server.setHandler(root);
          */
+        server.setHandler(root);
         server.start();
         server.join();
     }

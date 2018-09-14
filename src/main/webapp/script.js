@@ -6,7 +6,7 @@ function createPerson(){
     person.lastName = document.getElementById("cognome").value;
     person.id = document.getElementById("id").value;
     person.sex= document.getElementById("sesso").value;
-    var url = "/real2/rest/person/";
+    var url = "/rest/person/";
 	req = new XMLHttpRequest( );
     req.open("POST",url,true);
     req.setRequestHeader("Content-Type", "text/plain");
@@ -27,7 +27,7 @@ function createPerson(){
 }
 function getPerson(){
 	id = document.getElementById("getId").value;
-	 var url = "/real2/rest/person/"+id;
+	 var url = "/rest/person/"+id;
 	 req = new XMLHttpRequest( );
 	 req.open("GET",url,true);
 	 req.send();
@@ -52,7 +52,7 @@ function putPerson(){
 	    person.lastName = document.getElementById("putCognome").value;
 	    person.id = document.getElementById("putId").value;
 	    person.sex= document.getElementById("putSesso").value;
-	    var url = "/real2/rest/person/";
+	    var url = "/rest/person/";
 		req = new XMLHttpRequest( );
 	    req.open("PUT",url,true);
 	    req.setRequestHeader("Content-Type", "text/plain");
@@ -74,7 +74,7 @@ function putPerson(){
 }
 function deletePerson(){
 	id = document.getElementById("deleteId").value;
-	 var url = "/real2/rest/person/"+id;
+	 var url = "/rest/person/"+id;
 	 req = new XMLHttpRequest( );
 	 req.open("DELETE",url,true);
 	 req.send();
